@@ -45,9 +45,6 @@ class Pollee(object):
 
 
 class PollingHub(object):
-    LOG_FMT = "%(asctime)s [%(levelname)s] " \
-              "%(filename)s:%(lineno)s %(name)s %(funcName)s() : %(message)s"
-
     def _polling_thread_impl(self):
         self._log.info('START')
 
@@ -90,8 +87,6 @@ class PollingHub(object):
 
     def __init__(self, name=None):
         self.name = name if name else self.__class__.__name__
-
-        logging.basicConfig(level=logging.WARNING, format=self.LOG_FMT)
         self._log = logging.getLogger(self.name)
 
         self._targets_lock = threading.Lock()
@@ -146,5 +141,3 @@ class PollingHub(object):
 
     def __str__(self):
         return self.__repr__()
-
-

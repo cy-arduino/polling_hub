@@ -1,5 +1,6 @@
 import time
 from pollinghub import PollingHub, Pollee
+import logging
 
 
 def print_msg(msg):
@@ -23,4 +24,8 @@ def test_polling_hub():
 
 
 if __name__ == '__main__':
+    LOG_FMT = "%(asctime)s [%(levelname)s] " \
+              "%(filename)s:%(lineno)s %(name)s %(funcName)s() : %(message)s"
+    logging.basicConfig(level=logging.DEBUG, format=LOG_FMT)
+
     test_polling_hub()
