@@ -2,7 +2,7 @@
 
 ## Introduction
 Handle multiple polling task in a single polling hub.
-
+Default execute each callback synchronously.
 
 ## Install
 1. `pip install pollinghub`
@@ -17,4 +17,5 @@ Handle multiple polling task in a single polling hub.
 - Support asynchronous callback.
   - run in other thread/process?
   - use thread/process pool?
+  - if run asynchronously, user should use a THREAD-SAFE callback!
 - Add unit test.
