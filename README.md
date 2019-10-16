@@ -6,7 +6,7 @@ Default execute each callback synchronously.
 
 ## Install
 1. `pip install pollinghub`
-1. download from `https://pypi.org/project/pollinghub/0.1/`
+1. download from https://pypi.org/project/pollinghub/#files
 
 
 ## Usage
