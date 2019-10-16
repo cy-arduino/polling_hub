@@ -13,9 +13,17 @@ Default execute each callback synchronously.
 - see `examples/example.py`
 
 
+## unittest
+- run `scripts\test.bat`
+
+
+## deploy
+- run ``
+
+
 ## TODO
 - Support asynchronous callback.
   - run in other thread/process?
   - use thread/process pool?
   - if run asynchronously, user should use a THREAD-SAFE callback!
-- Add unit test.
+- ~~Add unit test.~~
