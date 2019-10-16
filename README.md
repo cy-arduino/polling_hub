@@ -18,7 +18,7 @@ Default execute each callback synchronously.
 
 
 ## deploy
-- run ``
+- run `scripts\deploy.bat`
 
 
 ## TODO
