@@ -50,11 +50,10 @@ class PollingHub(object):
 
         while self._running:
             now = time.time()
-            # self.log.debug('polling, now=%s', now)
+            self._log.debug('polling, now=%s', now)
 
             # handle expired target
             with self._targets_lock:
-                # self.dump()
                 for p in self._pollees:
                     if p.trigger_time <= now:
                         self._log.debug('trigger %s', p.name)
@@ -80,6 +79,7 @@ class PollingHub(object):
         self._log.info('STOP')
 
     def dump(self):
+        self._log.debug(traceback.format_exc())
         for p in self._pollees:
             trigger_time = p.trigger_time if p.trigger_time else -1
             self._log.info("%s: period=%s, trigger=%s", p, p.period,
@@ -99,15 +99,16 @@ class PollingHub(object):
 
     def reg(self, pollee):
         self._log.info("%s", pollee)
+
+        if not isinstance(pollee, Pollee):
+            self._log.error("invalid input type")
+            return False
+
         with self._targets_lock:
-            exist = False
             for p in self._pollees:
                 if pollee is p or pollee.name == p.name:
-                    exist = True
-
-            if exist:
-                self._log.error('Exist')
-                return False
+                    self._log.error('Exist')
+                    return False
 
             pollee.update_trigger_time()
             self._pollees.append(pollee)
