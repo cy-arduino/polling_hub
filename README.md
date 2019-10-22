@@ -22,8 +22,10 @@ Default execute each callback synchronously.
 
 
 ## TODO
+- warning if some callback run too long
 - Support asynchronous callback.
   - run in other thread/process?
   - use thread/process pool?
   - if run asynchronously, user should use a THREAD-SAFE callback!
 - ~~Add unit test.~~
+- add name for polling_hub
